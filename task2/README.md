@@ -10,7 +10,7 @@ Github или Pastebin всё еще удобнее чем поле на hh. П�
 
 ## Решение
 
-
+```
 CREATE TABLE [dbo].[Products](
 	[Id] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[Name] [nchar](100) NOT NULL
@@ -34,10 +34,13 @@ CREATE TABLE [dbo].[ProductsInCategories](
         ON UPDATE CASCADE,
 	PRIMARY KEY (ProductId, CategoryId)
 )
+```
 
 ### Ответ
 
+```
 SELECT P.[Name], C.Name
 	FROM [Products] AS P
 	LEFT JOIN [ProductsInCategories] AS PC ON P.Id = PC.ProductId
 	LEFT JOIN [Categories] C ON C.Id = CategoryId;
+```
